@@ -60,11 +60,11 @@ const XModal = () => {
                                 <label htmlFor='username'>Username:</label>
                                 <input onChange={handleChange} required value={formData.username} name='username' id='username' type='text'/>
                                 <label htmlFor='email'>Email Address:</label>
-                                <input onChange={handleChange} required value={formData.email} name='email' id='email' type='email'/>
+                                <input onChange={handleChange} required value={formData.email} name='email' id='email' type='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
                                 <label htmlFor='phone'>Phone Number:</label>
-                                <input onChange={handleChange} required value={formData.phone} name='phone' id='phone' type='number'/>
+                                <input onChange={handleChange} required value={formData.phone} name='phone' id='phone' type='tel' pattern="[0-9]{10}" maxLength="10"/>
                                 <label htmlFor='dob'>Date of birth:</label>
-                                <input onChange={handleChange} required value={formData.dob} name='dob' id='dob' type='date'/>
+                                <input onChange={handleChange} required value={formData.dob} name='dob' id='dob' type='date' max={new Date().toISOString().split('T')[0]}/>
                                 <button className='submit-button' type='submit'>Submit</button>
                         </form>
                     </div>
