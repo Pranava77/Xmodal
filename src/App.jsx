@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./App.css";
 
-const XModal = () => {
+const App = () => {
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -15,13 +15,13 @@ const XModal = () => {
         let error = false;
 
         // Email validation
-        if (!formData.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+        if (!formData.email.includes('@') || !formData.email.includes('.')) {
             alert("Invalid email. Please check your email address.");
             error = true;
         }
 
         // Phone validation
-        if (formData.phone.length !== 10 || !/^\d{10}$/.test(formData.phone)) {
+        if (formData.phone.length !== 10) {
             alert("Invalid phone number. Please enter a 10-digit phone number.");
             error = true;
         }
@@ -76,7 +76,6 @@ const XModal = () => {
                                 name='email'
                                 id='email'
                                 type='email'
-                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                             />
                             
                             <label htmlFor='phone'>Phone Number:</label>
@@ -88,7 +87,6 @@ const XModal = () => {
                                 id='phone'
                                 type='tel'
                                 pattern="[0-9]{10}"
-                                maxLength="10"
                             />
                             
                             <label htmlFor='dob'>Date of Birth:</label>
@@ -111,4 +109,4 @@ const XModal = () => {
     );
 };
 
-export default XModal;
+export default App;
